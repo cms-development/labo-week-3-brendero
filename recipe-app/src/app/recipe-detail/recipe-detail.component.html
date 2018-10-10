@@ -2,6 +2,17 @@
 
   <h2>{{recipe.title.rendered | uppercase}} Details</h2>
   <div><span>id: </span>{{recipe.id}}</div>
+
+  <p>{{recipe.content.rendered}}</p>
+  <p>{{recipe.meta_fields.introtext}}</p>
+  <p>contains alcholol: {{recipe.meta_fields.contains_alcohol}}</p>
+  <p>{{recipe.meta_fields.extra_tips}}</p>
+  <p>{{recipe.meta_fields._recipe_ingredients}}</p>
+  <p>{{recipe.meta_fields._recipe_subtitle}}</p>
+  <p>{{recipe.categories}}</p>
+  <img src={{recipe.acf.image1.url}}>
+  <img src={{recipe.acf.image2.url}}>
+
   <div>
     <label>name:
       <input [(ngModel)]="recipe.title.rendered" placeholder="name"/>

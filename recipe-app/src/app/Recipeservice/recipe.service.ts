@@ -3,7 +3,6 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 
 import { Recipe } from '../recipe';
-import { RECIPES } from '../mock-recipes';
 import { MessageService } from '../messageService/message.service';
 
 import { HttpClient, HttpHeaders } from '@angular/common/http';
@@ -14,6 +13,7 @@ const httpOptions = {
 };
 
 @Injectable({ providedIn: 'root' })
+
 export class RecipeService {
   private recipesUrl = 'https://brendero.cmsdevelopment.be/wp-json/wp/v2/rest_recipes';
   private log(message: string) {
@@ -42,12 +42,13 @@ export class RecipeService {
   }
 
   updateRecipe(recipe: Recipe): Observable<any> {
-    return this.http.put(this.recipesUrl, recipe, httpOptions)
+    return this.http.put(`${this.recipesUrl}/${recipe.id}`, recipe, httpOptions)
     .pipe(
       tap(_ => this.log(`updated recipe with id=${recipe.id}`)),
       catchError(this.handleError<any>('updateRecipe'))
     );
   }
+
   private handleError<T> (operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {
 

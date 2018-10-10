@@ -31,6 +31,7 @@ export class RecipeDetailComponent implements OnInit {
   }
 
   save(): void {
+    console.log(this.recipe);
     this.recipeService.updateRecipe(this.recipe)
       .subscribe(() => this.goBack());
   }

@@ -1,8 +1,8 @@
 <h2>Recipes</h2>
 <ul class="recipes">
-  <li *ngFor="let recipe of recipes" (click)="onSelect(recipe)" [class.selected]="recipe === selectedRecipe">
-    <a routerLink="/detail/{{recipe.id}}">
-      <span class="badge">{{recipe.id}}</span> {{recipe.name}}
+  <li *ngFor="let recipe of recipes">
+    <a routerLink="/recept/{{recipe.id}}">
+      <span class="badge">{{recipe.id}}</span> {{recipe.title.rendered}}
     </a>
   </li>
 </ul>
